@@ -1,6 +1,7 @@
 package com.mcmoddev.densemetals.gen;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -17,7 +18,7 @@ public class DenseMetalGen implements IWorldGenerator {
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		GENERATORS.forEach(e -> {
-			if (e.dim == world.provider.getDimension()) {
+			if (Arrays.asList(e.dims).contains(Integer.toString(world.provider.getDimension()))) {
 				runGenerator(e, world, random, chunkX, chunkZ, e.chance, e.yMin, e.yMax);
 			}
 		});

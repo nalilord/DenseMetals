@@ -73,8 +73,8 @@ public class DenseMetals {
 					final int yMin = config.getInt("Min Y Level", path, bl.getYMin(), 0, 255, "The minimum Y level replacement will occur at.");
 					final int yMax = config.getInt("Max Y Level", path, bl.getYMax(), 0, 255, "The maximum Y level replacement will occur at.");
 					final int chance = config.getInt("Spawn Chances", path, bl.getChance(), 0, 255, "How many times this ore will attempt to spawn each chunk.  A value of 0 will not generate.");
-					final int dim = config.getInt("Dimension", path, bl.getDim(), Integer.MIN_VALUE, Integer.MAX_VALUE, "What dimension this replacement occurs in.");
-					if (yMax >= yMin && chance > 0) DenseMetalGen.GENERATORS.add(new WorldGenEntry(bl, yMin, yMax, chance, dim));
+					final String[] dims = config.getStringList("Dimensions", path, new String[]{ Integer.toString(bl.getDim()) }, "What dimensions this replacement occurs in.");
+					if (yMax >= yMin && chance > 0) DenseMetalGen.GENERATORS.add(new WorldGenEntry(bl, yMin, yMax, chance, dims));
 				}
 			}
 		});

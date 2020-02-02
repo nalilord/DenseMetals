@@ -8,14 +8,14 @@ public class WorldGenEntry {
 	protected final int yMin;
 	protected final int yMax;
 	protected final int chance;
-	protected final int dim;
+	protected final String[] dims;
 
-	public WorldGenEntry(BlockDenseOre block, int yMin, int yMax, int chance, int dim) {
+	public WorldGenEntry(BlockDenseOre block, int yMin, int yMax, int chance, String[] dims) {
 		this.block = block;
 		this.yMin = yMin;
 		this.yMax = yMax;
 		this.chance = chance;
-		this.dim = dim;
+		this.dims = dims;
 	}
 
 }
